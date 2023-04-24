@@ -3,11 +3,10 @@
 ## Features
 
 - Login para os funcionarios
-- Cadastro do Imóvel
-- Ficha de Avaliação/ Dados do Imóvel
-- Fotos do Imóvel
+- Cadastro do Imovel
+- Ficha de Avaliação/ Dados do Imovel
+- Fotos do Imovel
 - Define um valor
-- Gerar contrato
-- Publicar no site da Imobiliária
-- Avaliar Propostas
-- 
+- Gerar um contrato
+- Publicar no Site da imobiliaria
+- Avaliar propostas
