@@ -20,7 +20,7 @@ import { drawerWidth, AppBar, Drawer, mdTheme } from './dashboard/estilos'
 
 import Home from './dashboard/Home';
 import Cadastro from './imovel/Cadastro';
-
+import ListarImovel from './imovel/Listar';
 
 function DashboardContent(attr) {
   const [open, setOpen] = React.useState(true);
@@ -57,7 +57,7 @@ function DashboardContent(attr) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Sistema de Avalição de Imovel
+              Sistema de Avaliação de Imóvel
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -114,9 +114,9 @@ function DashboardContent(attr) {
 export default function Dashboard() {
 
     // router
-    if (window.location.pathname == '/cadastro')
+    if (window.location.pathname == '/imovel')
     {
-        return <DashboardContent pagina={ <Cadastro /> } />;
+        return <DashboardContent pagina={ <ListarImovel /> } />;
     } else {
         return <DashboardContent pagina={ <Home /> } />;
     }
