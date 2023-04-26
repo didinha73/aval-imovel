@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import  Button from '@mui/material/Button';
 
 import { app } from '../firebase'
 import { getFirestore} from 'firebase/firestore'
@@ -50,6 +51,9 @@ export default function Listar()
     return (
         
         <Grid container spacing={3}>
+            <Grid item>
+                <Button href="/imoveis/cadastro"  variant="contained">Cadastrar Imóvel</Button>
+            </Grid>
             <Grid item xs={12} md={12} lg={12}>
             <Paper
                   sx={{
@@ -77,7 +81,7 @@ export default function Listar()
                                 <TableCell>{imo.codigo}</TableCell>
                                 <TableCell>{imo.endereco}</TableCell>
                                 <TableCell>{ imo.valor_avaliado.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) }</TableCell>
-                                <TableCell>{ imo.data_cadastro.toLocaleString() }</TableCell>
+                                <TableCell>{ imo.data_cadastro.toDate().toLocaleString() }</TableCell>
                             </TableRow>
                         )
                         })
