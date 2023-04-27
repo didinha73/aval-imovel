@@ -115,8 +115,8 @@ export default function Listar()
 
                     <TableBody>
                     {imoveis.map(function (imo) {
+                        const link = 'imoveis/editar/' + imo.id;
                         return (
-
                             <TableRow key={imo.id}>
                                 <TableCell>{imo.codigo}</TableCell>
                                 <TableCell>{imo.endereco}</TableCell>
@@ -124,7 +124,7 @@ export default function Listar()
                                 <TableCell>{ imo.data_cadastro.toDate().toLocaleString() }</TableCell>
                                 <TableCell>
                                     <IconButton onClick={ () => {deletar(imo.id)} }><DeleteIcon /> </IconButton>
-                                    <IconButton href='/imoveis/editar/'> <EditIcon /> </IconButton>
+                                    <IconButton href={link}> <EditIcon /> </IconButton>
                                 </TableCell>
                             </TableRow>
                         )
