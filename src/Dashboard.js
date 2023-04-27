@@ -18,31 +18,16 @@ import { mainListItems, secondaryListItems } from './dashboard/Listitems';
 import Copyright from './dashboard/Copyright';
 import { drawerWidth, AppBar, Drawer, mdTheme } from './dashboard/estilos'
 
-import Home from './dashboard/Home';
-import CadastroImovel from './imovel/Cadastro';
-import ListarImovel from './imovel/Listar';
+import paginas from './rotas';
 
 import ReactDOM from "react-dom/client";
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const paginas = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/imoveis",
-    element: <ListarImovel />,
-  },
-  {
-    path: "/imoveis/cadastro",
-    element: <CadastroImovel />,
-  },
 
-]);
 
 function DashboardContent(attr) {
   const [open, setOpen] = React.useState(true);

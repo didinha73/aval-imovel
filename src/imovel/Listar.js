@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import  Button from '@mui/material/Button';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import EditIcon from '@mui/icons-material/Edit';
 import { app } from '../firebase'
 import { getFirestore} from 'firebase/firestore'
 import { collection, getDocs } from 'firebase/firestore';
@@ -124,6 +124,7 @@ export default function Listar()
                                 <TableCell>{ imo.data_cadastro.toDate().toLocaleString() }</TableCell>
                                 <TableCell>
                                     <IconButton onClick={ () => {deletar(imo.id)} }><DeleteIcon /> </IconButton>
+                                    <IconButton href='/imoveis/editar/'> <EditIcon /> </IconButton>
                                 </TableCell>
                             </TableRow>
                         )
