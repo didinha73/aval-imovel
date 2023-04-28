@@ -22,6 +22,8 @@ import paginas from './rotas';
 
 import ReactDOM from "react-dom/client";
 
+import Login from './Login';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -120,7 +122,15 @@ function DashboardContent(attr) {
 
 export default function Dashboard() {
 
+  const [logado, setLogado] = React.useState(false);
+
+  if(logado == true){
     return <DashboardContent />;
-    
+  } else {
+    return <Login />;
+  }
+
   
+
+
 }
