@@ -10,7 +10,8 @@ const firebaseConfig = {
   projectId: "imovel-aval",
   storageBucket: "imovel-aval.appspot.com",
   messagingSenderId: "722053773877",
-  appId: "1:722053773877:web:d3d144b79b954578a40f7c"
+  appId: "1:722053773877:web:d3d144b79b954578a40f7c",
+  storageBucket: "gs://imovel-aval.appspot.com"
 };
 
 // Initialize Firebase

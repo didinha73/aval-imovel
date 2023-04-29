@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { mainListItems, secondaryListItems } from './dashboard/Listitems';
 import Copyright from './dashboard/Copyright';
@@ -36,6 +37,12 @@ function DashboardContent(attr) {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  function sair()
+  {
+    window.sessionStorage.clear();
+    window.location.pathname = "/";
+  }
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -69,9 +76,8 @@ function DashboardContent(attr) {
               Sistema de Avaliação de Imóvel
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+
+              <LogoutIcon onClick={sair} />
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -122,12 +128,15 @@ function DashboardContent(attr) {
 
 export default function Dashboard() {
 
-  const [logado, setLogado] = React.useState(false);
+  const session = window.sessionStorage.getItem('logado')
 
-  if(logado == true){
+  const [logado, setLogado] = React.useState(session);
+
+  
+  if(logado == 'true'){
     return <DashboardContent />;
   } else {
-    return <Login />;
+    return <Login status={setLogado} />;
   }
 
   

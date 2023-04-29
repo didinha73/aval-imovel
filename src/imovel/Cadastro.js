@@ -1,19 +1,24 @@
 import { Button, Grid, MenuItem, Paper, TextField } from "@mui/material";
 import { Box } from "@mui/system";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { app } from '../firebase'
 import { getFirestore} from 'firebase/firestore'
 
 import { doc, setDoc, collection } from "firebase/firestore";
 
+import { getStorage } from "firebase/storage";
 
 //conexao com o banco de dados
 const db = getFirestore(app);
+
+const storage = getStorage(app);
 
 export default function Cadastro()
 {
     const [carregando, setCarregando] = useState(false);
     const [novoImovel, setNovoImovel] = useState({});
+
+    const inputUpload = useRef();
 
     async function cadastrar(evento)
     {
@@ -44,6 +49,11 @@ export default function Cadastro()
 
         console.log(novoImovel);
     }
+
+    function upload()
+    {
+
+    }
     return (
         <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
@@ -73,6 +83,9 @@ export default function Cadastro()
                     <TextField onChange={alteraImovel} label="Valor" margin="normal" name="valor_avaliado" />
                     <TextField onChange={alteraImovel} label="Geo Localização" margin="normal" name="geoloc" />
                     <TextField onChange={alteraImovel} label="Extras" margin="normal" name="extras" />
+                    <TextField ref={inputUpload} type="file" label="Foto"></TextField>
+                    <Button onClick={upload} >UPload</Button>
+
                     {
                         (carregando==true)?
                         <Button disabled variant="contained" >Enviando...</Button> :
